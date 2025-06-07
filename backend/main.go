@@ -1,22 +1,25 @@
 package main
 
 import (
-    "log"
-    "net/http"
-    "qa-evaluation-app/backend/database"
-    "qa-evaluation-app/backend/routes"
+	"log"
+	"os"
+
+	"qa-evaluation-app/backend/database"
 )
 
 func main() {
-    // Connect to the database
-    database.Connect()
+	// Connect to database
+	database.Connect()
 
-    // Set up routes
-    router := routes.SetupRoutes()
+	// Setup router
+	router := database.SetupRouter()
 
-    // Start the server
-    log.Println("Starting server on :8080")
-    if err := http.ListenAndServe(":8080", router); err != nil {
-        log.Fatalf("Could not start server: %s\n", err)
-    }
+	// Get port from environment or use default
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	log.Printf("Server starting on port %s", port)
+	log.Fatal(router.Run(":" + port))
 }
