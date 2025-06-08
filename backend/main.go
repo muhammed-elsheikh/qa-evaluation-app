@@ -2,24 +2,56 @@ package main
 
 import (
 	"log"
-	"os"
 
-	"qa-evaluation-app/backend/database"
+	"qa-evaluation-app/config"
+	"qa-evaluation-app/handlers"
+	"qa-evaluation-app/models"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	// Connect to database
-	database.Connect()
+	// Database connection
+	dbConfig := config.NewDatabaseConfig()
+	db, err := dbConfig.Connect()
+	if err != nil {
+		log.Fatal("Failed to connect to database:", err)
+	}
+	defer db.Close()
 
-	// Setup router
-	router := database.SetupRouter()
+	// Initialize repository and handlers
+	evalRepo := models.NewEvaluationRepository(db)
+	evalHandler := handlers.NewEvaluationHandler(evalRepo)
 
-	// Get port from environment or use default
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
+	// Initialize Gin router
+	r := gin.Default()
+
+	// CORS middleware
+	r.Use(func(c *gin.Context) {
+		c.Header("Access-Control-Allow-Origin", "*")
+		c.Header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+		c.Header("Access-Control-Allow-Headers", "Content-Type, Authorization")
+
+		if c.Request.Method == "OPTIONS" {
+			c.AbortWithStatus(204)
+			return
+		}
+
+		c.Next()
+	})
+
+	// API routes
+	api := r.Group("/api/v1")
+	{
+		api.POST("/evaluations", evalHandler.CreateEvaluation)
+		api.GET("/evaluations/user/:userId", evalHandler.GetEvaluationsByUserID)
 	}
 
-	log.Printf("Server starting on port %s", port)
-	log.Fatal(router.Run(":" + port))
+	// Health check
+	r.GET("/health", func(c *gin.Context) {
+		c.JSON(200, gin.H{"status": "ok"})
+	})
+
+	log.Println("Server starting on port 8080...")
+	r.Run(":8080")
 }
