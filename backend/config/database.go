@@ -2,7 +2,6 @@ package config
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"os"
 
@@ -10,28 +9,17 @@ import (
 )
 
 type DatabaseConfig struct {
-	Host     string
-	Port     string
-	User     string
-	Password string
-	DBName   string
+	DatabaseURL string
 }
 
 func NewDatabaseConfig() *DatabaseConfig {
 	return &DatabaseConfig{
-		Host:     os.Getenv("DB_HOST"),
-		Port:     os.Getenv("DB_PORT"),
-		User:     os.Getenv("DB_USER"),
-		Password: os.Getenv("DB_PASSWORD"),
-		DBName:   os.Getenv("DB_NAME"),
+		DatabaseURL: os.Getenv("DATABASE_URL"),
 	}
 }
 
 func (config *DatabaseConfig) Connect() (*sql.DB, error) {
-	dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
-		config.Host, config.Port, config.User, config.Password, config.DBName)
-
-	db, err := sql.Open("postgres", dsn)
+	db, err := sql.Open("postgres", config.DatabaseURL)
 	if err != nil {
 		return nil, err
 	}

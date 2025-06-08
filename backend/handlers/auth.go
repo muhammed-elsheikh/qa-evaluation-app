@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"time"
 
-	"qa-evaluation-app/backend/models"
+	"qa-evaluation-app/models"
 
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
