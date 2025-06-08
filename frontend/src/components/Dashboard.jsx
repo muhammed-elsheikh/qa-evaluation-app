@@ -9,7 +9,7 @@ const Dashboard = () => {
 
     const fetchEvaluations = async () => {
         try {
-            const response = await fetch('/api/evaluations');
+            const response = await fetch('/api/v1/evaluations/user/1');
             const data = await response.json();
             setEvaluations(data);
         } catch (error) {

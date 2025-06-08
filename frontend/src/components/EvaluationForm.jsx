@@ -19,7 +19,7 @@ const EvaluationForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('/api/evaluations', {
+            const response = await fetch('/api/v1/evaluations', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
