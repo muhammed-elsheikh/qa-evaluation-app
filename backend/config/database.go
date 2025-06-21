@@ -1,11 +1,11 @@
 package config
 
 import (
-	"database/sql"
 	"log"
 	"os"
 
-	_ "github.com/lib/pq"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
 type DatabaseConfig struct {
@@ -18,13 +18,9 @@ func NewDatabaseConfig() *DatabaseConfig {
 	}
 }
 
-func (config *DatabaseConfig) Connect() (*sql.DB, error) {
-	db, err := sql.Open("postgres", config.DatabaseURL)
+func (config *DatabaseConfig) Connect() (*gorm.DB, error) {
+	db, err := gorm.Open(postgres.Open(config.DatabaseURL), &gorm.Config{})
 	if err != nil {
-		return nil, err
-	}
-
-	if err = db.Ping(); err != nil {
 		return nil, err
 	}
 

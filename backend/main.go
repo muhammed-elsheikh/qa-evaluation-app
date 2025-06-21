@@ -4,8 +4,6 @@ import (
 	"log"
 
 	"evo/config"
-	"evo/handlers"
-	"evo/models"
 
 	"github.com/gin-gonic/gin"
 )
@@ -17,11 +15,11 @@ func main() {
 	if err != nil {
 		log.Fatal("Failed to connect to database:", err)
 	}
-	defer db.Close()
-
-	// Initialize repository and handlers
-	evalRepo := models.NewEvaluationRepository(db)
-	evalHandler := handlers.NewEvaluationHandler(evalRepo)
+	sqlDB, err := db.DB()
+	if err != nil {
+		log.Fatal("failed to get database connection", err)
+	}
+	defer sqlDB.Close()
 
 	// Initialize Gin router
 	r := gin.Default()
@@ -39,13 +37,6 @@ func main() {
 
 		c.Next()
 	})
-
-	// API routes
-	api := r.Group("/api/v1")
-	{
-		api.POST("/evaluations", evalHandler.CreateEvaluation)
-		api.GET("/evaluations/user/:userId", evalHandler.GetEvaluationsByUserID)
-	}
 
 	// Health check
 	r.GET("/health", func(c *gin.Context) {
