@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"qa-evaluation-app/models"
+	"evo/models"
 
 	"github.com/gin-gonic/gin"
 )

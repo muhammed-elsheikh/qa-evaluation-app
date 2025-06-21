@@ -1,3 +1,4 @@
+version: '3.3'
 services:
   frontend:
     build:
@@ -7,6 +8,7 @@ services:
       - "3000:80"
     depends_on:
       - backend
+      - db
 
   backend:
     build:

@@ -1,4 +1,4 @@
-# QA Evaluation App
+# Evo
 
 A modern, containerized QA evaluation application built with Go, React, and PostgreSQL.
 
@@ -24,7 +24,7 @@ The QA Evaluation App is a full-stack web application designed to streamline the
 
 ## 📁 Project Structure
 ```
-qa-evaluation-app/
+Evo/
 ├── .env                           # Environment variables
 ├── .env.example                   # Environment variables template
 ├── docker-compose.yml             # Multi-container orchestration
@@ -88,7 +88,7 @@ qa-evaluation-app/
 ### 1. Clone and Setup
 ```bash
 git clone <repository-url>
-cd qa-evaluation-app
+cd Evo
 cp .env.example .env
 ```
 

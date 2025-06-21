@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"qa-evaluation-app/controllers"
+	"evo/controllers"
 
 	"github.com/gin-gonic/gin"
 )

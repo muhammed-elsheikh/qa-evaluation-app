@@ -1,8 +1,8 @@
 package controllers
 
 import (
+	"evo/models"
 	"net/http"
-	"qa-evaluation-app/models"
 
 	"github.com/gin-gonic/gin"
 )
@@ -25,7 +25,7 @@ func GetEvaluations(c *gin.Context) {
 	c.JSON(http.StatusOK, evaluations)
 }
 
-// UpdateEvaluation handles the update of an existing evaluation
+// UpdateEvaluation handles the updat e of an existing evaluation
 func UpdateEvaluation(c *gin.Context) {
 	id := c.Param("id")
 	var evaluation models.Evaluation
@@ -34,6 +34,7 @@ func UpdateEvaluation(c *gin.Context) {
 		return
 	}
 	// Logic to update evaluation in the database using id
+	_ = id // TODO: Use id to update specific evaluation
 	c.JSON(http.StatusOK, evaluation)
 }
 
@@ -41,5 +42,6 @@ func UpdateEvaluation(c *gin.Context) {
 func DeleteEvaluation(c *gin.Context) {
 	id := c.Param("id")
 	// Logic to delete evaluation from the database using id
+	_ = id // TODO: Use id to delete specific evaluation
 	c.JSON(http.StatusNoContent, nil)
 }

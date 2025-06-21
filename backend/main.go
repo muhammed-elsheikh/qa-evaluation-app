@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	"qa-evaluation-app/config"
-	"qa-evaluation-app/handlers"
-	"qa-evaluation-app/models"
+	"evo/config"
+	"evo/handlers"
+	"evo/models"
 
 	"github.com/gin-gonic/gin"
 )
