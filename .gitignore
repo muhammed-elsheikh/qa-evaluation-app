@@ -128,7 +128,7 @@ dist/
 /dist
 
 # Compiled binary
-qa-evaluation-app
+qdk-tool
 
 # Database files
 *.db

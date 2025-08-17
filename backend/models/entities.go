@@ -31,7 +31,7 @@ type EmployeeRole struct {
 type Interaction struct {
 	ID                 uint `gorm:"primaryKey"`
 	EmployeeID         uint
-	Type               string // e.g., "evaluation", "message", etc.
+	Type               string // e.g., "qdk", "message", etc.
 	Content            string
 	Duration           int    // Duration in seconds
 	CallDriver         string // e.g., "Zoom", "Teams", etc.
@@ -41,4 +41,15 @@ type Interaction struct {
 	QaScore            int    // Quality Assurance score, e.g., 1-5
 	Feedback           string // Feedback from the interaction
 	CreatedAt          int64  // Unix timestamp or use time.Time
+}
+
+// QDK entity
+type QDK struct {
+	ID        uint   `gorm:"primaryKey" json:"id"`
+	UserID    uint   `json:"user_id"`
+	UserName  string `json:"user_name"`
+	Score     int    `json:"score"`
+	Comments  string `json:"comments"`
+	EntryDate string `json:"entry_date"`
+	CreatedAt int64  `json:"created_at"`
 }

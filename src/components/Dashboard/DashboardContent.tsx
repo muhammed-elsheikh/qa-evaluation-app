@@ -58,10 +58,10 @@ const DashboardContent: React.FC<DashboardContentProps> = ({ user }) => {
       {/* Welcome Header */}
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-6 text-white">
         <h1 className="text-3xl font-bold mb-2">
-          {user ? `Welcome back, ${user.name}!` : 'Welcome to QA Dashboard'}
+          {user ? `Welcome back, ${user.name}!` : 'Welcome to QDK Dashboard'}
         </h1>
         <p className="text-blue-100">
-          Here's what's happening with your quality assurance metrics today.
+          Here's what's happening with your QDK metrics today.
         </p>
       </div>
 

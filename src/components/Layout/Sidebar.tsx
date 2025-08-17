@@ -31,7 +31,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, onToggle }) => {
       <div className="p-4 border-b border-gray-700">
         <div className="flex items-center justify-between">
           {!isCollapsed && (
-            <h1 className="text-xl font-bold">QA Dashboard</h1>
+            <h1 className="text-xl font-bold">QDK Tool</h1>
           )}
           <button
             onClick={onToggle}

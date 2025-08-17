@@ -8,7 +8,7 @@ COPY package*.json* ./
 
 # If no package.json exists, create a basic one
 RUN if [ ! -f package.json ]; then \
-    echo '{"name":"qa-evaluation-frontend","version":"1.0.0","private":true,"scripts":{"start":"react-scripts start","build":"react-scripts build","test":"react-scripts test","eject":"react-scripts eject"},"dependencies":{"react":"^18.2.0","react-dom":"^18.2.0","react-scripts":"5.0.1","@types/react":"^18.0.0","@types/react-dom":"^18.0.0","typescript":"^4.9.0","tailwindcss":"^3.3.0","autoprefixer":"^10.4.14","postcss":"^8.4.24"},"browserslist":{"production":[">0.2%","not dead","not op_mini all"],"development":["last 1 chrome version","last 1 firefox version","last 1 safari version"]}}' > package.json; \
+    echo '{"name":"qdk-tool-frontend","version":"1.0.0","private":true,"scripts":{"start":"react-scripts start","build":"react-scripts build","test":"react-scripts test","eject":"react-scripts eject"},"dependencies":{"react":"^18.2.0","react-dom":"^18.2.0","react-scripts":"5.0.1","@types/react":"^18.0.0","@types/react-dom":"^18.0.0","typescript":"^4.9.0","tailwindcss":"^3.3.0","autoprefixer":"^10.4.14","postcss":"^8.4.24"},"browserslist":{"production":[">0.2%","not dead","not op_mini all"],"development":["last 1 chrome version","last 1 firefox version","last 1 safari version"]}}' > package.json; \
     fi
 
 # Install dependencies
@@ -28,7 +28,7 @@ RUN if [ ! -f tsconfig.json ]; then \
 
 # Create public/index.html if it doesn't exist
 RUN mkdir -p public && if [ ! -f public/index.html ]; then \
-    echo '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="%PUBLIC_URL%/favicon.ico"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="QA Evaluation App"/><title>QA Evaluation App</title></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>' > public/index.html; \
+    echo '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="%PUBLIC_URL%/favicon.ico"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="QDK Tool"/><title>QDK Tool</title></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>' > public/index.html; \
     fi
 
 # Create App.css if it doesn't exist

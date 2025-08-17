@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"evo/config"
+	"qdk-tool/config"
 
 	"github.com/gin-gonic/gin"
 )

@@ -1,14 +1,14 @@
 package routes
 
 import (
-	"evo/controllers"
+	"qdk-tool/controllers"
 
 	"github.com/gin-gonic/gin"
 )
 
 func SetupRoutes(router *gin.Engine) {
-	router.POST("/evaluations", controllers.CreateEvaluation)
-	router.GET("/evaluations", controllers.GetEvaluations)
-	router.PUT("/evaluations/:id", controllers.UpdateEvaluation)
-	router.DELETE("/evaluations/:id", controllers.DeleteEvaluation)
+	router.POST("/qdk", controllers.CreateQDK)
+	router.GET("/qdk", controllers.GetQDKEntries)
+	router.PUT("/qdk/:id", controllers.UpdateQDK)
+	router.DELETE("/qdk/:id", controllers.DeleteQDK)
 }
