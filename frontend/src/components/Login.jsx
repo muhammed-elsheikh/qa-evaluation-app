@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import AuthFooter from './AuthFooter';
 
-const Login = () => {
+const Login = ({ onAuthSuccess, onSwitchToSignup, onSwitchToForgotPassword }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -63,7 +64,17 @@ const Login = () => {
         //     setError('Login failed. Please check your credentials.');
         // } else {
         //     // Handle successful login (e.g., redirect to dashboard)
+        //     const userData = await response.json();
+        //     onAuthSuccess && onAuthSuccess(userData);
         // }
+
+        // For now, simulate successful login
+        const mockUser = {
+            name: 'John Doe',
+            email: email,
+            avatar: ''
+        };
+        onAuthSuccess && onAuthSuccess(mockUser);
     };
 
     const togglePassword = () => {
@@ -78,7 +89,7 @@ const Login = () => {
                     {/* Logo + Header */}
                     <div className="text-center mb-8">
                         <div className="mb-6">
-                            <img src="/logo.svg" alt="QA Evaluation App" className="mx-auto h-16 w-16"/>
+                            <img src="/logo.svg" alt="QDK Tool" className="mx-auto h-16 w-16"/>
                         </div>
                         <h1 className="text-2xl font-bold text-sf-dark-blue font-poppins mb-2">
                             Log In to Your Account
@@ -222,12 +233,13 @@ const Login = () => {
                                 </label>
                             </div>
                             <div>
-                                <a 
-                                    href="/forgot-password" 
+                                <button
+                                    type="button"
+                                    onClick={onSwitchToForgotPassword}
                                     className="text-sm text-sf-blue-600 hover:text-sf-blue-700 hover:underline focus:outline-none focus:underline transition-colors duration-200"
                                 >
                                     Forgot Password?
-                                </a>
+                                </button>
                             </div>
                         </div>
 
@@ -250,37 +262,19 @@ const Login = () => {
                     <div className="mt-6 text-center">
                         <p className="text-sm text-gray-600">
                             Need an account?{' '}
-                            <a 
-                                href="/signup" 
+                            <button
+                                onClick={onSwitchToSignup}
                                 className="font-medium text-sf-blue-600 hover:text-sf-blue-700 hover:underline focus:outline-none focus:underline transition-colors duration-200"
                             >
                                 Sign Up
-                            </a>
+                            </button>
                         </p>
                     </div>
                 </div>
             </div>
 
             {/* Footer */}
-            <footer className="bg-gray-50 border-t border-gray-200">
-                <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-center space-x-6 text-xs text-gray-500">
-                        <a 
-                            href="/privacy" 
-                            className="hover:text-gray-700 hover:underline transition-colors duration-200"
-                        >
-                            Privacy Policy
-                        </a>
-                        <span>•</span>
-                        <a 
-                            href="/terms" 
-                            className="hover:text-gray-700 hover:underline transition-colors duration-200"
-                        >
-                            Terms of Service
-                        </a>
-                    </div>
-                </div>
-            </footer>
+            <AuthFooter />
         </div>
     );
 };

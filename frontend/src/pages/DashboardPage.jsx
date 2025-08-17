@@ -1,12 +1,12 @@
 import React from 'react';
-import Dashboard from '../components/Dashboard';
+import DashboardLayout from '../components/layout/DashboardLayout';
+import DashboardOverview from './DashboardOverview';
 
-const DashboardPage = () => {
+const DashboardPage = ({ user, onLogout }) => {
     return (
-        <div className="dashboard-page">
-            <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
-            <Dashboard />
-        </div>
+        <DashboardLayout user={user} onLogout={onLogout}>
+            <DashboardOverview />
+        </DashboardLayout>
     );
 };
 

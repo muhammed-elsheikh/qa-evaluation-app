@@ -1,41 +1,41 @@
 import React, { useEffect, useState } from 'react';
 
 const Dashboard = () => {
-    const [evaluations, setEvaluations] = useState([]);
+    const [qdkEntries, setQdkEntries] = useState([]);
 
     useEffect(() => {
-        fetchEvaluations();
+        fetchQdkEntries();
     }, []);
 
-    const fetchEvaluations = async () => {
+    const fetchQdkEntries = async () => {
         try {
-            const response = await fetch('/api/v1/evaluations/user/1');
+            const response = await fetch('/api/v1/qdk/user/1');
             const data = await response.json();
-            setEvaluations(data);
+            setQdkEntries(data);
         } catch (error) {
-            console.error('Error fetching evaluations:', error);
+            console.error('Error fetching QDK entries:', error);
         }
     };
 
     return (
         <div className="p-4">
-            <h1 className="text-2xl font-bold mb-4">Evaluations Dashboard</h1>
+            <h1 className="text-2xl font-bold mb-4">QDK Dashboard</h1>
             <table className="min-w-full bg-white border border-gray-300">
                 <thead>
                     <tr>
                         <th className="py-2 px-4 border-b">ID</th>
-                        <th className="py-2 px-4 border-b">Evaluator</th>
+                        <th className="py-2 px-4 border-b">User</th>
                         <th className="py-2 px-4 border-b">Comments</th>
                         <th className="py-2 px-4 border-b">Date</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {evaluations.map(evaluation => (
-                        <tr key={evaluation.id}>
-                            <td className="py-2 px-4 border-b">{evaluation.id}</td>
-                            <td className="py-2 px-4 border-b">{evaluation.evaluator}</td>
-                            <td className="py-2 px-4 border-b">{evaluation.comments}</td>
-                            <td className="py-2 px-4 border-b">{new Date(evaluation.date).toLocaleDateString()}</td>
+                    {qdkEntries.map(entry => (
+                        <tr key={entry.id}>
+                            <td className="py-2 px-4 border-b">{entry.id}</td>
+                            <td className="py-2 px-4 border-b">{entry.user}</td>
+                            <td className="py-2 px-4 border-b">{entry.comments}</td>
+                            <td className="py-2 px-4 border-b">{new Date(entry.date).toLocaleDateString()}</td>
                         </tr>
                     ))}
                 </tbody>

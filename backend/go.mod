@@ -1,4 +1,4 @@
-module evo
+module qdk-tool
 
 go 1.19
 

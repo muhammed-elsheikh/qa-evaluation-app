@@ -1,6 +1,6 @@
-# Evo
+# QDK Tool
 
-A modern, containerized QA evaluation application built with Go, React, and PostgreSQL.
+A modern, containerized QDK application built with Go, React, and PostgreSQL.
 
 ## ✅ Current Status
 - **Application Status**: ✅ **FULLY OPERATIONAL**
@@ -12,7 +12,7 @@ A modern, containerized QA evaluation application built with Go, React, and Post
 - **Last Updated**: June 9, 2025
 
 ## 🚀 Overview
-The QA Evaluation App is a full-stack web application designed to streamline the evaluation submission process for QA teams. It features a modern React frontend with Tailwind CSS, a robust Go backend with Gin framework, and PostgreSQL database, all containerized with Docker for easy deployment.
+The QDK Tool is a full-stack web application designed to streamline the QDK process for teams. It features a modern React frontend with Tailwind CSS, a robust Go backend with Gin framework, and PostgreSQL database, all containerized with Docker for easy deployment.
 
 ## 🛠 Tech Stack
 - **Backend**: Go 1.19+ with Gin framework
@@ -24,7 +24,7 @@ The QA Evaluation App is a full-stack web application designed to streamline the
 
 ## 📁 Project Structure
 ```
-Evo/
+QDK-Tool/
 ├── .env                           # Environment variables
 ├── .env.example                   # Environment variables template
 ├── docker-compose.yml             # Multi-container orchestration
@@ -37,16 +37,16 @@ Evo/
 │   ├── config/                    # Configuration files
 │   │   └── database.go           # Database connection config
 │   ├── controllers/               # Business logic controllers
-│   │   └── evaluationController.go
+│   │   └── qdkController.go
 │   ├── handlers/                  # HTTP request handlers
 │   │   ├── auth.go               # Authentication handlers
 │   │   ├── dashboard.go          # Dashboard handlers
-│   │   └── evaluation.go         # Evaluation handlers
+│   │   └── qdk.go                # QDK handlers
 │   ├── middleware/                # HTTP middleware
 │   │   ├── auth.go               # Authentication middleware
 │   │   └── cors.go               # CORS middleware
 │   ├── models/                    # Data models
-│   │   ├── evaluation.go         # Evaluation model
+│   │   ├── qdk.go                # QDK model
 │   │   └── user.go               # User model
 │   └── routes/                    # API route definitions
 │       └── routes.go
@@ -63,7 +63,7 @@ Evo/
 │       ├── index.css              # Global styles
 │       ├── components/            # Reusable components
 │       │   ├── Dashboard.jsx
-│       │   ├── EvaluationForm.jsx
+│       │   ├── QDKForm.jsx
 │       │   └── Login.jsx
 │       └── pages/                 # Page components
 │           ├── DashboardPage.jsx
@@ -126,14 +126,14 @@ docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 ### 5. Comprehensive Application Test
 ```bash
 # Run complete health check
-cd qa-evaluation-app
+cd qdk-tool
 echo "=== APPLICATION HEALTH CHECK ==="
 echo "Backend Health:"
 curl -s http://localhost:8080/health
 echo -e "\n\nFrontend Status:"
 curl -s -o /dev/null -w "HTTP Status: %{http_code}\nResponse Time: %{time_total}s\n" http://localhost:3000
 echo -e "\nContainer Status:"
-docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" | grep qa-evaluation
+docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" | grep qdk-tool
 ```
 
 ## 🔧 Development Setup (Local)
@@ -155,10 +155,10 @@ npm start
 ### Database Setup
 ```bash
 # Using Docker for PostgreSQL
-docker run --name qa-postgres \
-  -e POSTGRES_USER=qauser \
-  -e POSTGRES_PASSWORD=qapassword \
-  -e POSTGRES_DB=qa_evaluation_db \
+docker run --name qdk-postgres \
+  -e POSTGRES_USER=qdkuser \
+  -e POSTGRES_PASSWORD=qdkpassword \
+  -e POSTGRES_DB=qdk_tool_db \
   -p 5432:5432 -d postgres:17
 ```
 
@@ -171,9 +171,9 @@ docker run --name qa-postgres \
 - `POST /api/v1/auth/login` - User login
 - `POST /api/v1/auth/register` - User registration
 
-### Evaluations
-- `POST /api/v1/evaluations` - Create evaluation
-- `GET /api/v1/evaluations/user/:userId` - Get user evaluations
+### QDK
+- `POST /api/v1/qdk` - Create QDK entry
+- `GET /api/v1/qdk/user/:userId` - Get user QDK entries
 
 ## 🏗 Architecture Features
 
@@ -240,12 +240,12 @@ Create a `.env` file based on `.env.example`:
 
 ```env
 # Database Configuration
-POSTGRES_USER=qauser
-POSTGRES_PASSWORD=qapassword
-POSTGRES_DB=qa_evaluation_db
+POSTGRES_USER=qdkuser
+POSTGRES_PASSWORD=qdkpassword
+POSTGRES_DB=qdk_tool_db
 
 # Backend Configuration
-DATABASE_URL=postgres://qauser:qapassword@db:5432/qa_evaluation_db?sslmode=disable
+DATABASE_URL=postgres://qdkuser:qdkpassword@db:5432/qdk_tool_db?sslmode=disable
 ```
 
 ## 🚀 Production Deployment
@@ -285,8 +285,8 @@ docker compose up -d --remove-orphans
 **API endpoint 404 errors:**
 ```bash
 # Ensure you're using the correct API paths:
-# ✅ Correct: /api/v1/evaluations
-# ❌ Wrong: /api/evaluations
+# ✅ Correct: /api/v1/qdk
+# ❌ Wrong: /api/qdk
 
 # Frontend components have been updated to use v1 API paths
 ```
@@ -305,7 +305,7 @@ sudo netstat -tulpn | grep :5432
 docker compose logs db
 
 # Test database connection
-docker compose exec db psql -U qauser -d qa_evaluation_db
+docker compose exec db psql -U qdkuser -d qdk_tool_db
 ```
 
 **Frontend build issues:**
@@ -354,7 +354,7 @@ Create a quick test script to verify all components:
 #!/bin/bash
 # save as test-app.sh and run with: bash test-app.sh
 
-echo "=== QA EVALUATION APP HEALTH CHECK ==="
+echo "=== QDK TOOL HEALTH CHECK ==="
 echo "Date: $(date)"
 echo ""
 
@@ -380,7 +380,7 @@ fi
 # Test Database Connection
 echo ""
 echo "🗄️ Database Health Check:"
-DB_STATUS=$(docker compose exec -T db pg_isready -U qauser 2>/dev/null)
+DB_STATUS=$(docker compose exec -T db pg_isready -U qdkuser 2>/dev/null)
 if [[ $DB_STATUS == *"accepting connections"* ]]; then
     echo "✅ Database: HEALTHY"
 else
@@ -390,7 +390,7 @@ fi
 # Container Status
 echo ""
 echo "🐳 Container Status:"
-docker ps --format "table {{.Names}}\t{{.Status}}" | grep qa-evaluation
+docker ps --format "table {{.Names}}\t{{.Status}}" | grep qdk-tool
 
 # API Endpoints Test
 echo ""
@@ -413,7 +413,7 @@ curl http://localhost:8080/health
 curl -I http://localhost:8080/health
 
 # Test API endpoints (may return errors if DB not fully initialized)
-curl http://localhost:8080/api/v1/evaluations/user/1
+curl http://localhost:8080/api/v1/qdk/user/1
 ```
 
 #### 2. Frontend Testing
@@ -428,13 +428,13 @@ curl -s http://localhost:3000 | grep -o '<div id="root">'
 #### 3. Database Testing
 ```bash
 # Check database connection
-docker compose exec db pg_isready -U qauser
+docker compose exec db pg_isready -U qdkuser
 
 # Connect to database (interactive)
-docker compose exec db psql -U qauser -d qa_evaluation_db
+docker compose exec db psql -U qdkuser -d qdk_tool_db
 
 # List databases
-docker compose exec db psql -U qauser -c "\l"
+docker compose exec db psql -U qdkuser -c "\l"
 ```
 
 #### 4. Integration Testing

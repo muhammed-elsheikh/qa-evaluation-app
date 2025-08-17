@@ -42,6 +42,16 @@ class ApiService {
     return data;
   }
 
+  async forgotPassword(email: string) {
+    const response = await fetch(`${API_BASE_URL}/auth/forgot-password`, {
+      method: 'POST',
+      headers: this.getAuthHeaders(),
+      body: JSON.stringify({ email }),
+    });
+    
+    return this.handleResponse<{ message: string }>(response);
+  }
+
   async getProfile() {
     const response = await fetch(`${API_BASE_URL}/auth/profile`, {
       headers: this.getAuthHeaders(),

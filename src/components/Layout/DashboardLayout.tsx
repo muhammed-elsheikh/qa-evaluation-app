@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import DashboardContent from '../Dashboard/DashboardContent';
-import { apiService } from '../../services/api';
 
 interface User {
   name: string;
@@ -10,45 +9,21 @@ interface User {
   avatar?: string;
 }
 
-const DashboardLayout: React.FC = () => {
+interface DashboardLayoutProps {
+  user: User;
+  onLogout: () => void;
+}
+
+const DashboardLayout: React.FC<DashboardLayoutProps> = ({ user, onLogout }) => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
-  const [user, setUser] = useState<User | undefined>(undefined);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Check if user is already authenticated
-    const checkAuth = async () => {
-      if (apiService.isAuthenticated()) {
-        try {
-          const response = await apiService.getProfile();
-          setUser(response.user);
-        } catch (error) {
-          // Token might be invalid, clear it
-          apiService.logout();
-        }
-      }
-      setLoading(false);
-    };
-
-    checkAuth();
-  }, []);
 
   const handleAuthChange = (userData: User | undefined) => {
-    setUser(userData);
+    if (!userData) {
+      onLogout();
+    }
   };
 
   const breadcrumbs = ['Dashboard', 'Overview'];
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-screen bg-gray-100">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="flex h-screen bg-gray-100">
