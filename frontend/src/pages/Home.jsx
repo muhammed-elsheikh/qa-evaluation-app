@@ -12,14 +12,14 @@ const Home = ({ user, onLogout }) => {
                 <div className="space-x-4 mb-6">
                     <Link 
                         to="/dashboard" 
-                        className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                        className="sf-button-primary px-6 py-3 rounded-lg font-medium"
                     >
                         View Dashboard
                     </Link>
                 </div>
                 
                 {/* User Info and Logout */}
-                <div className="bg-white p-6 rounded-lg shadow-sm max-w-md mx-auto">
+                <div className="bg-white p-6 rounded-lg shadow-card max-w-md mx-auto">
                     <div className="flex items-center justify-between">
                         <div className="text-left">
                             <p className="text-sm text-gray-600">Signed in as:</p>

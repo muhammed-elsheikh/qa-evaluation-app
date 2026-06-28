@@ -6,43 +6,61 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Salesforce-inspired color palette
-        'sf-blue': {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9', // Light blue accent
-          600: '#0176d3', // Primary Salesforce blue
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
+        brand: {
+          DEFAULT: 'var(--color-brand)',
+          hover: 'var(--color-brand-hover)',
+          active: 'var(--color-brand-active)',
+          light: 'var(--color-brand-light)',
         },
-        'sf-light-blue': '#00a1e0',
-        'sf-dark-blue': '#032d42',
-        'sf-navy': '#16325c',
-        'sf-gray': {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
-        }
+        bg: 'var(--color-bg)',
+        text: 'var(--color-text)',
+        success: {
+          DEFAULT: 'var(--color-success)',
+          light: 'var(--color-success-light)',
+        },
+        warning: {
+          DEFAULT: 'var(--color-warning)',
+          light: 'var(--color-warning-light)',
+        },
+        error: {
+          DEFAULT: 'var(--color-error)',
+          light: 'var(--color-error-light)',
+        },
+        border: 'var(--color-border)',
+        focus: 'var(--color-focus)',
+        disabled: {
+          bg: 'var(--color-disabled-bg)',
+          text: 'var(--color-disabled-text)',
+        },
+        navy: 'var(--color-navy)',
       },
       fontFamily: {
-        'salesforce': ['Salesforce Sans', 'Arial', 'sans-serif'],
-        'poppins': ['Poppins', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-family)', 'sans-serif'],
       },
       spacing: {
-        '1.5': '0.375rem',
-        '18': '4.5rem',
-      }
+        1: 'var(--space-1)',
+        2: 'var(--space-2)',
+        3: 'var(--space-3)',
+        4: 'var(--space-4)',
+        5: 'var(--space-5)',
+        6: 'var(--space-6)',
+      },
+      borderRadius: {
+        sm: 'var(--radius-sm)',
+        md: 'var(--radius-md)',
+      },
+      boxShadow: {
+        card: 'var(--shadow-card)',
+        'card-md': '0 4px 8px rgba(0,0,0,.08), 0 6px 18px rgba(0,0,0,.06)'
+      },
+      fontSize: {
+        'xs': ['12px', '1.5'],
+        'sm': ['14px', '1.5'],
+        'base': ['16px', '1.5'],
+        'lg': ['20px', '1.4'],
+        'xl': ['24px', '1.4'],
+        '2xl': ['32px', '1.4'],
+      },
     },
   },
   plugins: [],

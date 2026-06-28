@@ -69,7 +69,7 @@ const ForgotPassword = ({ onBackToLogin, onEmailSent }) => {
                         <div className="mb-6">
                             <img src="/logo.svg" alt="QDK Tool" className="mx-auto h-16 w-16"/>
                         </div>
-                        <h1 className="text-2xl font-bold text-sf-dark-blue font-poppins mb-2">
+                        <h1 className="text-2xl font-bold text-navy font-poppins mb-2">
                             Forgot your password?
                         </h1>
                         <p className="text-gray-600 text-sm">
@@ -111,7 +111,7 @@ const ForgotPassword = ({ onBackToLogin, onEmailSent }) => {
                                     required
                                     className={`block w-full pl-10 pr-3 py-3 border ${
                                         emailError ? 'border-red-300' : 'border-gray-300'
-                                    } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sf-blue-600 focus:border-transparent transition-colors duration-200`}
+                                    } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-focus focus:border-transparent transition-colors duration-200`}
                                 />
                             </div>
                             {emailError && (
@@ -127,7 +127,7 @@ const ForgotPassword = ({ onBackToLogin, onEmailSent }) => {
                             <button
                                 type="submit"
                                 disabled={loading || !email || emailError}
-                                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sf-blue-600 hover:bg-sf-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sf-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] disabled:transform-none"
+                                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-brand hover:bg-brand-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-focus disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] disabled:transform-none"
                             >
                                 {loading ? (
                                     <span className="flex items-center">

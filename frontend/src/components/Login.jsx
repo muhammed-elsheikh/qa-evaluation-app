@@ -91,7 +91,7 @@ const Login = ({ onAuthSuccess, onSwitchToSignup, onSwitchToForgotPassword }) =>
                         <div className="mb-6">
                             <img src="/logo.svg" alt="QDK Tool" className="mx-auto h-16 w-16"/>
                         </div>
-                        <h1 className="text-2xl font-bold text-sf-dark-blue font-poppins mb-2">
+                        <h1 className="text-2xl font-bold text-navy font-poppins mb-2">
                             Log In to Your Account
                         </h1>
                         <p className="text-gray-600 text-sm">
@@ -103,7 +103,7 @@ const Login = ({ onAuthSuccess, onSwitchToSignup, onSwitchToForgotPassword }) =>
                     <div className="space-y-3 mb-6">
                         <button 
                             type="button"
-                            className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sf-blue-600 transition-colors duration-200"
+                            className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-focus transition-colors duration-200"
                         >
                             <svg className="w-5 h-5 mr-3" viewBox="0 0 23 23" fill="none">
                                 <path fill="#f25022" d="M1 1h10v10H1z"/>
@@ -115,7 +115,7 @@ const Login = ({ onAuthSuccess, onSwitchToSignup, onSwitchToForgotPassword }) =>
                         </button>
                         <button 
                             type="button"
-                            className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sf-blue-600 transition-colors duration-200"
+                            className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-focus transition-colors duration-200"
                         >
                             <svg className="w-5 h-5 mr-3" viewBox="0 0 24 24">
                                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -171,7 +171,7 @@ const Login = ({ onAuthSuccess, onSwitchToSignup, onSwitchToForgotPassword }) =>
                                     required
                                     className={`block w-full pl-10 pr-3 py-3 border ${
                                         emailError ? 'border-red-300' : 'border-gray-300'
-                                    } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sf-blue-600 focus:border-transparent transition-colors duration-200`}
+                                    } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-focus focus:border-transparent transition-colors duration-200`}
                                 />
                             </div>
                             {emailError && (
@@ -200,7 +200,7 @@ const Login = ({ onAuthSuccess, onSwitchToSignup, onSwitchToForgotPassword }) =>
                                     required
                                     className={`block w-full pl-10 pr-10 py-3 border ${
                                         passwordError ? 'border-red-300' : 'border-gray-300'
-                                    } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sf-blue-600 focus:border-transparent transition-colors duration-200`}
+                                    } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-focus focus:border-transparent transition-colors duration-200`}
                                 />
                                 <button 
                                     type="button" 
@@ -226,7 +226,7 @@ const Login = ({ onAuthSuccess, onSwitchToSignup, onSwitchToForgotPassword }) =>
                                     type="checkbox" 
                                     checked={rememberMe}
                                     onChange={(e) => setRememberMe(e.target.checked)}
-                                    className="h-4 w-4 text-sf-blue-600 focus:ring-sf-blue-600 border-gray-300 rounded"
+                                    className="h-4 w-4 text-brand focus:ring-focus border-gray-300 rounded"
                                 />
                                 <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700">
                                     Remember me
@@ -236,7 +236,7 @@ const Login = ({ onAuthSuccess, onSwitchToSignup, onSwitchToForgotPassword }) =>
                                 <button
                                     type="button"
                                     onClick={onSwitchToForgotPassword}
-                                    className="text-sm text-sf-blue-600 hover:text-sf-blue-700 hover:underline focus:outline-none focus:underline transition-colors duration-200"
+                                    className="text-sm text-brand hover:text-brand-hover hover:underline focus:outline-none focus:underline transition-colors duration-200"
                                 >
                                     Forgot Password?
                                 </button>
@@ -248,7 +248,7 @@ const Login = ({ onAuthSuccess, onSwitchToSignup, onSwitchToForgotPassword }) =>
                             <button
                                 type="submit"
                                 disabled={!email || !password || emailError || passwordError}
-                                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sf-blue-600 hover:bg-sf-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sf-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] disabled:transform-none"
+                                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-brand hover:bg-brand-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-focus disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] disabled:transform-none"
                             >
                                 <span className="flex items-center">
                                     <i className="fas fa-sign-in-alt mr-2"></i>
@@ -264,7 +264,7 @@ const Login = ({ onAuthSuccess, onSwitchToSignup, onSwitchToForgotPassword }) =>
                             Need an account?{' '}
                             <button
                                 onClick={onSwitchToSignup}
-                                className="font-medium text-sf-blue-600 hover:text-sf-blue-700 hover:underline focus:outline-none focus:underline transition-colors duration-200"
+                                className="font-medium text-brand hover:text-brand-hover hover:underline focus:outline-none focus:underline transition-colors duration-200"
                             >
                                 Sign Up
                             </button>

@@ -12,7 +12,7 @@ const DonutGauge = ({
   // Loading state
   if (isLoading) {
     return (
-      <div className="bg-white rounded-lg shadow-sm p-6 animate-pulse">
+      <div className="bg-white rounded-lg shadow-card p-6 animate-pulse">
         <div className="h-4 bg-gray-200 rounded w-1/2 mb-4"></div>
         <div className="h-32 bg-gray-200 rounded mb-4"></div>
         <div className="h-3 bg-gray-200 rounded w-3/4"></div>
@@ -39,7 +39,7 @@ const DonutGauge = ({
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-sm p-6">
+    <div className="bg-white rounded-lg shadow-card p-6">
       {/* Header */}
       <div className="mb-4">
         <h3 className="text-lg font-semibold text-gray-900 mb-1">
@@ -117,7 +117,7 @@ const DonutGauge = ({
       <div className="mt-4">
         <div className="w-full bg-gray-200 rounded-full h-2">
           <div 
-            className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+            className="bg-brand h-2 rounded-full transition-all duration-300"
             style={{ width: `${percent}%` }}
           ></div>
         </div>

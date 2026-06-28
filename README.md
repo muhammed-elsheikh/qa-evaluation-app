@@ -239,14 +239,19 @@ docker compose ps
 Create a `.env` file based on `.env.example`:
 
 ```env
+# Example Environment Variables (do NOT use these values in production)
+
 # Database Configuration
-POSTGRES_USER=qdkuser
-POSTGRES_PASSWORD=qdkpassword
-POSTGRES_DB=qdk_tool_db
+POSTGRES_USER=your_db_user
+POSTGRES_PASSWORD=your_db_password
+POSTGRES_DB=your_db_name
 
 # Backend Configuration
-DATABASE_URL=postgres://qdkuser:qdkpassword@db:5432/qdk_tool_db?sslmode=disable
+DATABASE_URL=postgres://your_db_user:your_db_password@db:5432/your_db_name?sslmode=disable
 ```
+> **Note:**  
+> The above values are examples only. **Never commit real credentials or secrets to version control.**  
+> For production, use strong, unique passwords and manage secrets securely (e.g., Docker secrets, environment variables, or a secrets manager).
 
 ## 🚀 Production Deployment
 

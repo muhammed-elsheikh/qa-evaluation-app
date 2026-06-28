@@ -23,7 +23,7 @@ const KpiCard = ({ title, value, delta, icon, isLoading = false }) => {
   // Loading state
   if (isLoading) {
     return (
-      <div className="bg-white rounded-lg shadow-sm p-6 animate-pulse">
+      <div className="bg-white rounded-lg shadow-card p-6 animate-pulse">
         <div className="flex items-center justify-between mb-4">
           <div className="w-10 h-10 bg-gray-200 rounded-full"></div>
           <div className="w-16 h-4 bg-gray-200 rounded"></div>
@@ -39,18 +39,18 @@ const KpiCard = ({ title, value, delta, icon, isLoading = false }) => {
   const DeltaIcon = isPositive ? ArrowUp : ArrowDown;
 
   return (
-    <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow duration-200">
+    <div className="bg-white rounded-lg shadow-card p-6 hover:shadow-card-md transition-shadow duration-200">
       {/* Header with Icon and Delta */}
       <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center justify-center w-10 h-10 bg-blue-50 rounded-full">
-          <IconComponent className="w-5 h-5 text-blue-600" />
+        <div className="flex items-center justify-center w-10 h-10 bg-brand-light rounded-full">
+          <IconComponent className="w-5 h-5 text-brand" />
         </div>
         
         {delta && (
           <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${
             isPositive 
-              ? 'bg-green-50 text-green-700' 
-              : 'bg-red-50 text-red-700'
+              ? 'bg-success-light text-success' 
+              : 'bg-error-light text-error'
           }`}>
             <DeltaIcon className="w-3 h-3" />
             <span>{delta.value}</span>
@@ -60,7 +60,7 @@ const KpiCard = ({ title, value, delta, icon, isLoading = false }) => {
 
       {/* Value */}
       <div className="mb-2">
-        <div className="text-2xl font-bold text-gray-900">
+        <div className="text-2xl font-bold text-text">
           {value}
         </div>
       </div>

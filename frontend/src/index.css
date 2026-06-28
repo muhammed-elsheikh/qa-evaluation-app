@@ -1,3 +1,5 @@
+@import './styles/theme.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,8 +7,8 @@
 /* Salesforce-inspired base styles */
 @layer base {
     body {
-        @apply bg-white text-gray-800 antialiased;
-        font-family: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+        @apply bg-bg text-text antialiased;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -18,7 +20,7 @@
     button:focus, 
     select:focus, 
     textarea:focus {
-        @apply outline-none ring-2 ring-sf-blue-600 ring-offset-2;
+        @apply outline-none ring-2 ring-focus ring-offset-2;
     }
 
     /* Smooth transitions for interactive elements */
@@ -49,32 +51,32 @@
 /* Custom component styles */
 @layer components {
     .sf-card {
-        @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+        @apply bg-white rounded-md shadow-card border border-border p-6;
     }
 
     .sf-input {
-        @apply block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sf-blue-600 focus:border-transparent;
+        @apply block w-full px-3 py-2 border border-border rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-focus focus:border-transparent;
     }
 
     .sf-button-primary {
-        @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-sf-blue-600 hover:bg-sf-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sf-blue-600;
+        @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand hover:bg-brand-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-focus disabled:bg-disabled-bg disabled:text-disabled-text disabled:cursor-not-allowed;
     }
 
     .sf-button-secondary {
-        @apply inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sf-blue-600;
+        @apply inline-flex items-center px-4 py-2 border border-border text-sm font-medium rounded-md shadow-sm text-text bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-focus;
     }
 }
 
 a {
-    @apply text-blue-500 hover:text-blue-700;
+    @apply text-brand hover:text-brand-hover;
 }
 
 button {
-    @apply bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700;
+    @apply bg-brand text-white font-semibold py-2 px-4 rounded hover:bg-brand-hover;
 }
 
 input, textarea {
-    @apply border border-gray-300 rounded-md p-2;
+    @apply border border-border rounded-md p-2;
 }
 
 .container {

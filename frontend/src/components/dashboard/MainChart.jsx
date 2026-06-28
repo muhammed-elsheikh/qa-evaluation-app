@@ -15,9 +15,9 @@ const MainChart = ({ data, title = "Overview", timeframe = "Monthly" }) => {
   }
 
   const metrics = [
-    { key: 'profit', label: 'Profit', color: '#0066CC', strokeWidth: 3 },
-    { key: 'orders', label: 'Orders', color: '#00C851', strokeWidth: 2 },
-    { key: 'impressions', label: 'Impressions', color: '#FF6900', strokeWidth: 2 },
+    { key: 'profit', label: 'Profit', color: 'var(--color-brand)', strokeWidth: 3 },
+    { key: 'orders', label: 'Orders', color: 'var(--color-success)', strokeWidth: 2 },
+    { key: 'impressions', label: 'Impressions', color: 'var(--color-warning)', strokeWidth: 2 },
   ];
 
   const formatValue = (value) => {
@@ -32,7 +32,7 @@ const MainChart = ({ data, title = "Overview", timeframe = "Monthly" }) => {
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white p-4 border border-gray-200 rounded-lg shadow-lg">
+        <div className="bg-white p-4 border border-border rounded-lg shadow-card">
           <p className="text-gray-600 text-sm mb-2">{label}</p>
           {payload.map((entry, index) => (
             <div key={index} className="flex items-center justify-between gap-4">
@@ -43,7 +43,7 @@ const MainChart = ({ data, title = "Overview", timeframe = "Monthly" }) => {
                 ></div>
                 <span className="text-sm text-gray-700">{entry.name}:</span>
               </div>
-              <span className="text-sm font-semibold text-gray-900">
+              <span className="text-sm font-semibold text-text">
                 {formatValue(entry.value)}
               </span>
             </div>
@@ -59,7 +59,7 @@ const MainChart = ({ data, title = "Overview", timeframe = "Monthly" }) => {
       {/* Chart Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+          <h3 className="text-lg font-semibold text-text">{title}</h3>
           <p className="text-sm text-gray-500 mt-1">{timeframe} performance overview</p>
         </div>
         
@@ -71,7 +71,7 @@ const MainChart = ({ data, title = "Overview", timeframe = "Monthly" }) => {
               onClick={() => setSelectedMetric(metric.key)}
               className={`px-3 py-1.5 text-sm font-medium rounded transition-colors ${
                 selectedMetric === metric.key
-                  ? 'bg-white text-blue-600 shadow-sm'
+                  ? 'bg-white text-brand shadow-sm'
                   : 'text-gray-600 hover:text-gray-800'
               }`}
             >
@@ -127,7 +127,7 @@ const MainChart = ({ data, title = "Overview", timeframe = "Monthly" }) => {
               <Line
                 type="monotone"
                 dataKey={selectedMetric}
-                stroke={metrics.find(m => m.key === selectedMetric)?.color || '#0066CC'}
+                stroke={metrics.find(m => m.key === selectedMetric)?.color || 'var(--color-brand)'}
                 strokeWidth={3}
                 dot={{ fill: metrics.find(m => m.key === selectedMetric)?.color, strokeWidth: 2, r: 4 }}
                 activeDot={{ r: 6, stroke: metrics.find(m => m.key === selectedMetric)?.color, strokeWidth: 2, fill: '#fff' }}

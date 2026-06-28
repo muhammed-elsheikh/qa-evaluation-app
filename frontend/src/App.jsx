@@ -40,7 +40,7 @@ function App() {
     return (
       <div className="flex items-center justify-center h-screen bg-gray-100">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2" style={{ borderColor: 'var(--color-brand)' }}></div>
           <p className="mt-4 text-gray-600">Loading...</p>
         </div>
       </div>
@@ -50,9 +50,15 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* If user is not authenticated, show authentication container */}
         <Route 
           path="/" 
+          element={
+            <Home user={user} onLogout={handleLogout} />
+          } 
+        />
+        
+        <Route 
+          path="/login" 
           element={
             user ? 
             <Navigate to="/dashboard" replace /> : 
@@ -66,16 +72,14 @@ function App() {
           element={
             user ? 
             <DashboardPage user={user} onLogout={handleLogout} /> : 
-            <Navigate to="/" replace />
+            <Navigate to="/login" replace />
           } 
         />
         
         <Route 
           path="/home" 
           element={
-            user ? 
-            <Home user={user} onLogout={handleLogout} /> : 
-            <Navigate to="/" replace />
+            <Home user={user} onLogout={handleLogout} />
           } 
         />
 

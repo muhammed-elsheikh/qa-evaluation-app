@@ -39,10 +39,10 @@ const Navbar = ({ onMenuClick, user, onLogout }) => {
 
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-brand rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">QDK</span>
             </div>
-            <span className="text-xl font-bold text-gray-900 hidden sm:block">
+            <span className="text-xl font-bold text-text hidden sm:block">
               QDK Tool
             </span>
           </div>
@@ -56,7 +56,7 @@ const Navbar = ({ onMenuClick, user, onLogout }) => {
                 placeholder="Search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-64"
+                className="pl-10 pr-4 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-focus focus:border-transparent w-64"
               />
             </div>
           </div>
@@ -78,7 +78,7 @@ const Navbar = ({ onMenuClick, user, onLogout }) => {
             </button>
 
             {isLanguageDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50">
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-card-md border border-border py-1 z-50">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
@@ -91,7 +91,7 @@ const Navbar = ({ onMenuClick, user, onLogout }) => {
                     <span className="text-base">{lang.flag}</span>
                     <span>{lang.name}</span>
                     {selectedLanguage.code === lang.code && (
-                      <span className="ml-auto text-blue-600">✓</span>
+                      <span className="ml-auto text-brand">✓</span>
                     )}
                   </button>
                 ))}
@@ -102,7 +102,7 @@ const Navbar = ({ onMenuClick, user, onLogout }) => {
           {/* Notifications */}
           <button className="relative p-2 rounded-lg hover:bg-gray-100 transition-colors">
             <Bell className="w-5 h-5 text-gray-600" />
-            <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
+            <span className="absolute -top-1 -right-1 w-4 h-4 bg-error text-white text-xs rounded-full flex items-center justify-center">
               3
             </span>
           </button>
@@ -120,12 +120,12 @@ const Navbar = ({ onMenuClick, user, onLogout }) => {
                   className="w-8 h-8 rounded-full object-cover"
                 />
               ) : (
-                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                  <User className="w-4 h-4 text-blue-600" />
+                <div className="w-8 h-8 bg-brand-light rounded-full flex items-center justify-center">
+                  <User className="w-4 h-4 text-brand" />
                 </div>
               )}
               <div className="hidden sm:block text-left">
-                <div className="text-sm font-medium text-gray-900">
+                <div className="text-sm font-medium text-text">
                   {user?.name || 'User'}
                 </div>
                 <div className="text-xs text-gray-500">
@@ -136,9 +136,9 @@ const Navbar = ({ onMenuClick, user, onLogout }) => {
             </button>
 
             {isUserDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+              <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-card-md border border-border py-2 z-50">
                 <div className="px-4 py-2 border-b border-gray-100">
-                  <div className="text-sm font-medium text-gray-900">
+                  <div className="text-sm font-medium text-text">
                     {user?.name || 'User'}
                   </div>
                   <div className="text-xs text-gray-500">
@@ -163,7 +163,7 @@ const Navbar = ({ onMenuClick, user, onLogout }) => {
                       setIsUserDropdownOpen(false);
                       onLogout && onLogout();
                     }}
-                    className="flex items-center gap-3 w-full px-4 py-2 text-sm text-red-700 hover:bg-red-50 transition-colors"
+                    className="flex items-center gap-3 w-full px-4 py-2 text-sm text-error hover:bg-error-light transition-colors"
                   >
                     <LogOut className="w-4 h-4" />
                     <span>Sign Out</span>
@@ -184,7 +184,7 @@ const Navbar = ({ onMenuClick, user, onLogout }) => {
             placeholder="Search..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full pl-10 pr-4 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-focus focus:border-transparent"
           />
         </div>
       </div>

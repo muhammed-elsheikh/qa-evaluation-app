@@ -5,7 +5,7 @@ const ItemList = ({ title, items = [], isLoading = false }) => {
   // Loading state
   if (isLoading) {
     return (
-      <div className="bg-white rounded-lg shadow-sm p-6">
+      <div className="bg-white rounded-lg shadow-card p-6">
         <div className="h-5 bg-gray-200 rounded w-1/3 mb-4 animate-pulse"></div>
         <div className="space-y-3">
           {Array(5).fill(null).map((_, i) => (
@@ -26,7 +26,7 @@ const ItemList = ({ title, items = [], isLoading = false }) => {
   // Empty state
   if (items.length === 0) {
     return (
-      <div className="bg-white rounded-lg shadow-sm p-6">
+      <div className="bg-white rounded-lg shadow-card p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">
           {title}
         </h3>
@@ -41,7 +41,7 @@ const ItemList = ({ title, items = [], isLoading = false }) => {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-sm p-6">
+    <div className="bg-white rounded-lg shadow-card p-6">
       {/* Header */}
       <h3 className="text-lg font-semibold text-gray-900 mb-4">
         {title}
@@ -72,15 +72,15 @@ const ItemList = ({ title, items = [], isLoading = false }) => {
                   />
                 ) : null}
                 <div 
-                  className={`w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center ${item.avatar ? 'hidden' : 'flex'}`}
+                  className={`w-8 h-8 bg-brand-light rounded-full flex items-center justify-center ${item.avatar ? 'hidden' : 'flex'}`}
                 >
-                  <User className="w-4 h-4 text-blue-600" />
+                  <User className="w-4 h-4 text-brand" />
                 </div>
               </div>
 
               {/* Content */}
               <div className="flex-1 min-w-0">
-                <div className="text-sm font-medium text-gray-900 truncate group-hover:text-blue-600 transition-colors">
+                <div className="text-sm font-medium text-gray-900 truncate group-hover:text-brand transition-colors">
                   {item.name}
                 </div>
                 <div className="text-xs text-gray-500 truncate">
@@ -107,7 +107,7 @@ const ItemList = ({ title, items = [], isLoading = false }) => {
       {/* View More Link */}
       {items.length >= 5 && (
         <div className="mt-4 pt-4 border-t border-gray-100">
-          <button className="text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors">
+          <button className="text-sm text-brand hover:text-brand-hover font-medium transition-colors">
             View all items →
           </button>
         </div>

@@ -22,7 +22,7 @@ const PageHeader = ({
           <select
             value={selectedTimeframe}
             onChange={(e) => onTimeframeChange && onTimeframeChange(e.target.value)}
-            className="appearance-none bg-white border border-gray-200 rounded-lg pl-4 pr-10 py-2 text-sm font-medium text-gray-700 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors cursor-pointer"
+            className="appearance-none bg-white border border-gray-200 rounded-lg pl-4 pr-10 py-2 text-sm font-medium text-gray-700 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-focus focus:border-transparent transition-colors cursor-pointer"
           >
             {timeframeOptions.map((option) => (
               <option key={option.value} value={option.value}>

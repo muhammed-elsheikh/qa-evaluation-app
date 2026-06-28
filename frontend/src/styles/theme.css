@@ -1,0 +1,122 @@
+:root {
+  --color-brand: #0176D3;
+  --color-brand-hover: color-mix(in srgb, var(--color-brand) 85%, black);
+  --color-brand-active: color-mix(in srgb, var(--color-brand) 75%, black);
+  --color-brand-light: color-mix(in srgb, var(--color-brand) 10%, white);
+  --color-bg: #F3F3F3;
+  --color-text: #181818;
+  --color-success: #2E844A;
+  --color-success-light: color-mix(in srgb, var(--color-success) 10%, white);
+  --color-warning: #FE9339;
+  --color-warning-light: color-mix(in srgb, var(--color-warning) 10%, white);
+  --color-error: #BA0517;
+  --color-error-light: color-mix(in srgb, var(--color-error) 10%, white);
+  --color-border: #D9DBDD;
+  --color-focus: #0176D3;
+  --color-disabled-bg: #E0E5EE;
+  --color-disabled-text: #9DA2A6;
+  --color-navy: #032D60; /* Alt inverse / header navy */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 24px;
+  --shadow-card: 0 1px 2px rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.06);
+  --shadow-card-md: 0 4px 8px rgba(0,0,0,.08), 0 6px 18px rgba(0,0,0,.06);
+  --font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+/* Button styles */
+.btn--brand {
+  background: var(--color-brand);
+  color: white;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition: background .15s ease, box-shadow .15s ease;
+  font-family: var(--font-family);
+  padding: var(--space-4) var(--space-5);
+  font-size: 14px;
+  font-weight: 500;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn--brand:hover {
+  background: var(--color-brand-hover);
+}
+
+.btn--brand:active {
+  background: var(--color-brand-active);
+}
+
+.btn--brand:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-focus) 75%, white);
+  outline-offset: 2px;
+}
+
+.btn--brand:disabled {
+  background: var(--color-disabled-bg);
+  color: var(--color-disabled-text);
+  cursor: not-allowed;
+}
+
+/* Input styles */
+.input {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  font-family: var(--font-family);
+  font-size: 14px;
+  background: white;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-focus) 20%, white);
+}
+
+.input::placeholder {
+  color: #64748b;
+}
+
+/* Card styles */
+.card {
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
+  padding: var(--space-6);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-card-md);
+}
+
+/* Typography */
+body {
+  font-family: var(--font-family);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+h1 { font-size: 32px; }
+h2 { font-size: 24px; }
+h3 { font-size: 20px; }
+h4 { font-size: 16px; }
+h5 { font-size: 14px; }
+h6 { font-size: 12px; }
+
+p { font-size: 14px; }

@@ -87,7 +87,7 @@ const QDKForm = () => {
                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
                 />
             </div>
-            <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-md">Submit QDK Entry</button>
+            <button type="submit" className="w-full sf-button-primary">Submit QDK Entry</button>
         </form>
     );
 };

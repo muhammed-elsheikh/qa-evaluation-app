@@ -8,8 +8,8 @@ const CheckEmail = ({ email, onBackToLogin, onResendEmail }) => {
         <div className="w-full max-w-md text-center">
           {/* Success Icon */}
           <div className="mb-6">
-            <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-              <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="mx-auto w-16 h-16 bg-brand-light rounded-full flex items-center justify-center">
+              <svg className="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
@@ -30,7 +30,7 @@ const CheckEmail = ({ email, onBackToLogin, onResendEmail }) => {
           <div className="space-y-4">
             <button
               onClick={onBackToLogin}
-              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+              className="w-full sf-button-primary"
             >
               Back to login
             </button>
@@ -40,7 +40,7 @@ const CheckEmail = ({ email, onBackToLogin, onResendEmail }) => {
                 Didn't receive the email?{' '}
                 <button
                   onClick={onResendEmail}
-                  className="font-medium text-blue-600 hover:text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm px-1 transition-colors duration-200"
+                  className="font-medium text-brand hover:text-brand-hover hover:underline focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-2 rounded-sm px-1 transition-colors duration-200"
                 >
                   Click to resend
                 </button>

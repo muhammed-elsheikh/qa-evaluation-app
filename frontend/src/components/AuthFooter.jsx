@@ -26,7 +26,7 @@ const AuthFooter = () => {
             <span className="hidden sm:inline">·</span>
             <a 
               href="/privacy" 
-              className="text-blue-600 hover:text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm px-1 py-1 min-h-[44px] sm:min-h-0 sm:px-0 sm:py-0 flex items-center transition-colors duration-200"
+              className="text-brand hover:text-brand-hover hover:underline focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-2 rounded-sm px-1 py-1 min-h-[44px] sm:min-h-0 sm:px-0 sm:py-0 flex items-center transition-colors duration-200"
               aria-label="Privacy Policy"
             >
               Privacy
@@ -34,7 +34,7 @@ const AuthFooter = () => {
             <span className="hidden sm:inline text-gray-300">·</span>
             <a 
               href="/terms" 
-              className="text-blue-600 hover:text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm px-1 py-1 min-h-[44px] sm:min-h-0 sm:px-0 sm:py-0 flex items-center transition-colors duration-200"
+              className="text-brand hover:text-brand-hover hover:underline focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-2 rounded-sm px-1 py-1 min-h-[44px] sm:min-h-0 sm:px-0 sm:py-0 flex items-center transition-colors duration-200"
               aria-label="Terms of Service"
             >
               Terms
@@ -42,7 +42,7 @@ const AuthFooter = () => {
             <span className="hidden sm:inline text-gray-300">·</span>
             <a 
               href="/docs" 
-              className="text-blue-600 hover:text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm px-1 py-1 min-h-[44px] sm:min-h-0 sm:px-0 sm:py-0 flex items-center transition-colors duration-200"
+              className="text-brand hover:text-brand-hover hover:underline focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-2 rounded-sm px-1 py-1 min-h-[44px] sm:min-h-0 sm:px-0 sm:py-0 flex items-center transition-colors duration-200"
               aria-label="Documentation"
             >
               Docs
@@ -55,7 +55,7 @@ const AuthFooter = () => {
             <div className="relative">
               <button
                 onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
-                className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm px-2 py-2 min-h-[44px] sm:min-h-0 transition-colors duration-200"
+                className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-2 rounded-sm px-2 py-2 min-h-[44px] sm:min-h-0 transition-colors duration-200"
                 aria-label={`Language and region selector. Currently set to ${selectedLanguage.name}`}
                 aria-expanded={isLanguageDropdownOpen}
                 aria-haspopup="listbox"
@@ -75,7 +75,7 @@ const AuthFooter = () => {
                   />
                   
                   <div 
-                    className="absolute right-0 bottom-full mb-1 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50"
+                    className="absolute right-0 bottom-full mb-1 w-64 bg-white rounded-lg shadow-card-md border border-border py-2 z-50"
                     role="listbox"
                   >
                     <div className="px-3 py-2 text-xs font-medium text-gray-900 border-b border-gray-100">
@@ -97,7 +97,7 @@ const AuthFooter = () => {
                           <span className="text-xs text-gray-500">{lang.region}</span>
                         </div>
                         {selectedLanguage.code === lang.code && (
-                          <span className="text-blue-600 text-sm">✓</span>
+                          <span className="text-brand text-sm">✓</span>
                         )}
                       </button>
                     ))}
@@ -109,7 +109,7 @@ const AuthFooter = () => {
             {/* Help Link */}
             <a 
               href="/help" 
-              className="flex items-center gap-1 text-xs sm:text-sm text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm px-2 py-2 min-h-[44px] sm:min-h-0 transition-colors duration-200"
+              className="flex items-center gap-1 text-xs sm:text-sm text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-2 rounded-sm px-2 py-2 min-h-[44px] sm:min-h-0 transition-colors duration-200"
               aria-label="Help and Support"
             >
               <HelpCircle className="w-3 h-3 sm:w-4 sm:h-4" />

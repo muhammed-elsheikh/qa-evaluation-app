@@ -58,10 +58,10 @@ const Sidebar = ({ isOpen, onClose, user }) => {
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200 lg:hidden">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">QDK</span>
+            <div className="w-8 h-8 bg-brand rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm">QA</span>
             </div>
-            <span className="text-lg font-bold text-gray-900">QDK Tool</span>
+            <span className="text-lg font-bold text-text">QDK Tool</span>
           </div>
           <button
             onClick={onClose}
@@ -97,17 +97,16 @@ const Sidebar = ({ isOpen, onClose, user }) => {
                         className={`
                           flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors
                           ${isActive 
-                            ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700' 
-                            : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
-                          }
-                        `}
+                            ? 'bg-brand-light text-brand border-r-2 border-brand' 
+                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                          }`}
                       >
                         <IconComponent className={`w-4 h-4 ${
-                          isActive ? 'text-blue-700' : 'text-gray-500'
+                          isActive ? 'text-brand' : 'text-gray-500'
                         }`} />
                         <span className="truncate">{item.label}</span>
                         {isActive && (
-                          <div className="ml-auto w-2 h-2 bg-blue-600 rounded-full"></div>
+                          <div className="ml-auto w-2 h-2 bg-brand rounded-full"></div>
                         )}
                       </Link>
                     );

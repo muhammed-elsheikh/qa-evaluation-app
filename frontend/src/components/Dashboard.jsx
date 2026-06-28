@@ -20,22 +20,22 @@ const Dashboard = () => {
     return (
         <div className="p-4">
             <h1 className="text-2xl font-bold mb-4">QDK Dashboard</h1>
-            <table className="min-w-full bg-white border border-gray-300">
+            <table className="min-w-full bg-white border border-border">
                 <thead>
                     <tr>
-                        <th className="py-2 px-4 border-b">ID</th>
-                        <th className="py-2 px-4 border-b">User</th>
-                        <th className="py-2 px-4 border-b">Comments</th>
-                        <th className="py-2 px-4 border-b">Date</th>
+                        <th className="py-2 px-4 border-b border-border">ID</th>
+                        <th className="py-2 px-4 border-b border-border">User</th>
+                        <th className="py-2 px-4 border-b border-border">Comments</th>
+                        <th className="py-2 px-4 border-b border-border">Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     {qdkEntries.map(entry => (
                         <tr key={entry.id}>
-                            <td className="py-2 px-4 border-b">{entry.id}</td>
-                            <td className="py-2 px-4 border-b">{entry.user}</td>
-                            <td className="py-2 px-4 border-b">{entry.comments}</td>
-                            <td className="py-2 px-4 border-b">{new Date(entry.date).toLocaleDateString()}</td>
+                            <td className="py-2 px-4 border-b border-border">{entry.id}</td>
+                            <td className="py-2 px-4 border-b border-border">{entry.user}</td>
+                            <td className="py-2 px-4 border-b border-border">{entry.comments}</td>
+                            <td className="py-2 px-4 border-b border-border">{new Date(entry.date).toLocaleDateString()}</td>
                         </tr>
                     ))}
                 </tbody>

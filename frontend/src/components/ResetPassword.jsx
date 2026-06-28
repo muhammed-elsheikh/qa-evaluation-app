@@ -81,8 +81,8 @@ const ResetPassword = ({ token, onPasswordReset, onBackToLogin }) => {
           {/* Header */}
           <div className="text-center mb-8">
             <div className="mb-6">
-              <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="mx-auto w-16 h-16 bg-brand-light rounded-full flex items-center justify-center">
+                <svg className="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
                 </svg>
               </div>
@@ -129,7 +129,7 @@ const ResetPassword = ({ token, onPasswordReset, onBackToLogin }) => {
                   required
                   className={`block w-full px-3 py-3 border ${
                     fieldErrors.password ? 'border-red-300' : 'border-gray-300'
-                  } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200`}
+                  } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-focus focus:border-transparent transition-colors duration-200`}
                 />
                 <button 
                   type="button" 
@@ -171,7 +171,7 @@ const ResetPassword = ({ token, onPasswordReset, onBackToLogin }) => {
                   required
                   className={`block w-full px-3 py-3 border ${
                     fieldErrors.confirmPassword ? 'border-red-300' : 'border-gray-300'
-                  } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200`}
+                  } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-focus focus:border-transparent transition-colors duration-200`}
                 />
                 <button 
                   type="button" 
@@ -199,7 +199,7 @@ const ResetPassword = ({ token, onPasswordReset, onBackToLogin }) => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+                className="w-full sf-button-primary disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
               >
                 {loading ? (
                   <div className="flex items-center">
@@ -220,10 +220,10 @@ const ResetPassword = ({ token, onPasswordReset, onBackToLogin }) => {
           <div className="mt-6 text-center">
             <button
               onClick={onBackToLogin}
-              className="text-sm text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm px-1 transition-colors duration-200"
+              className="text-sm text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-2 rounded-sm px-1 transition-colors duration-200"
             >
-              ← Back to login
-            </button>
+               ← Back to login
+               </button>
           </div>
         </div>
       </div>
